@@ -6,7 +6,7 @@
 #
 
 # Boost C++ Libraries headers
-BOOST_INCLUDE = /home/marat/boost_1_55_0
+BOOST_INCLUDE = ../../../../boost_1_55_0
 
 # Boost C++ Libraries binaries
 BOOST_LIB = $${BOOST_INCLUDE}/lib

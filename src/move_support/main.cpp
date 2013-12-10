@@ -19,7 +19,7 @@
 
 namespace {
 
-class explicit_movable 
+class explicit_movable
 {
 private:
   typedef explicit_movable this_type;
@@ -44,12 +44,12 @@ public:
   }
 }; // explicit_movable
 
-class implicit_movable 
+class implicit_movable
 {
 private:
   typedef implicit_movable this_type;
 
-public:  
+public:
 
 private:
   explicit_movable explicit_movable_;
@@ -76,7 +76,7 @@ int main(int /*argc*/, char* /*argv*/[])
       implicit_movable b(std::move(a));
     }
     {
-      std::cout << "Move ctor for std::bind generated functors" << std::endl;      
+      std::cout << "Move ctor for std::bind generated functors" << std::endl;
       auto fa(std::bind(func, explicit_movable()));
       std::cout << "Moving... ";
       auto fb = std::move(fa);
@@ -104,5 +104,5 @@ int main(int /*argc*/, char* /*argv*/[])
   {
     std::cerr << "Unexpected error" << std::endl;
   }
-  return EXIT_FAILURE;  
+  return EXIT_FAILURE;
 }
