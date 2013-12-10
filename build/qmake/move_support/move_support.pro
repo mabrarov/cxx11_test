@@ -14,7 +14,7 @@ CONFIG   -= app_bundle
 # Common project configuration
 include(../config.pri)
 
-SOURCES  += ../../../src/main.cpp
+SOURCES  += ../../../src/move_support/main.cpp
 
 INCLUDEPATH += $${BOOST_INCLUDE} \
                ../../../include
