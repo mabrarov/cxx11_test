@@ -94,6 +94,15 @@ int main(int /*argc*/, char* /*argv*/[])
       std::cout << "Moving... ";
       auto fb(std::move(fa));
     }
+    {
+      std::cout << "Implicit move ctor for lambdas those capture by ref" 
+                << std::endl;      
+      explicit_movable a;
+      explicit_movable b;
+      auto fa = [a, &b](){};
+      std::cout << "Moving... ";
+      auto fb(std::move(fa));
+    }
     return EXIT_SUCCESS;
   }
   catch (const std::exception& e)
