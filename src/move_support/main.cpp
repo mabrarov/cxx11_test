@@ -74,18 +74,21 @@ int main(int /*argc*/, char* /*argv*/[])
       implicit_movable a;
       std::cout << "Moving... ";
       implicit_movable b(std::move(a));
+      (void)b;
     }
     {
       std::cout << "Move ctor for std::bind generated functors" << std::endl;
       auto fa(std::bind(func, explicit_movable()));
       std::cout << "Moving... ";
       auto fb = std::move(fa);
+      (void)fb;
     }
     {
       std::cout << "Move ctor for boost::bind generated functors" << std::endl;
       auto fa(boost::bind(func, explicit_movable()));
       std::cout << "Moving... ";
       auto fb = std::move(fa);
+      (void)fb;
     }
     {
       std::cout << "Implicit move ctor for lambdas" << std::endl;
@@ -93,6 +96,7 @@ int main(int /*argc*/, char* /*argv*/[])
       auto fa = [a](){};
       std::cout << "Moving... ";
       auto fb(std::move(fa));
+      (void)fb;
     }
     {
       std::cout << "Implicit move ctor for lambdas those capture by ref" 
@@ -102,6 +106,7 @@ int main(int /*argc*/, char* /*argv*/[])
       auto fa = [a, &b](){};
       std::cout << "Moving... ";
       auto fb(std::move(fa));
+      (void)fb;
     }
     return EXIT_SUCCESS;
   }
