@@ -13,11 +13,14 @@ find_package(Boost REQUIRED)
 set(HEADERS_DIR "${PROJECT_SOURCE_DIR}/../../../include")
 set(SOURCES_DIR "${PROJECT_SOURCE_DIR}/../../../src")
 
+set(HEADERS
+)
+
 set(SOURCES 
     "${SOURCES_DIR}/move_support/main.cpp"
 )
 
 include_directories(${Boost_INCLUDE_DIRS})
 include_directories(${HEADERS_DIR})
-add_executable(move_support ${SOURCES})
+add_executable(move_support ${HEADERS} ${SOURCES})
 target_link_libraries(move_support ${Boost_LIBRARIES})
