@@ -77,7 +77,7 @@ int main(int /*argc*/, char* /*argv*/[])
       (void) b;
     }
     {
-      std::cout << "--- Move ctor for std::bind generated functors ---" 
+      std::cout << "--- Move ctor for std::bind generated functors ---"
           << std::endl;
       auto fa(std::bind(func, explicit_movable()));
       std::cout << "Moving... ";
