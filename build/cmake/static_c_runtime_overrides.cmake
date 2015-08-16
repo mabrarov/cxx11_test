@@ -5,6 +5,10 @@
 # file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 #
 
+cmake_minimum_required(VERSION 2.8.11)
+
+# Use CMAKE_USER_MAKE_RULES_OVERRIDE command line argument to point these rules
+
 if(MSVC)
     set(CMAKE_C_FLAGS_DEBUG_INIT          "/D_DEBUG /MTd /Zi /Ob0 /Od /RTC1")
     set(CMAKE_C_FLAGS_MINSIZEREL_INIT     "/MT /O1 /Ob1 /D NDEBUG")
@@ -16,3 +20,4 @@ if(MINGW)
     set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static ${CMAKE_EXE_LINKER_FLAGS}")
 endif()
 
+set(ICU_USE_STATIC_LIBS ON)

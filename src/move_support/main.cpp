@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2010-2014 Marat Abrarov (abrarov@gmail.com)
+// Copyright (c) 2010-2015 Marat Abrarov (abrarov@gmail.com)
 //
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -70,28 +70,30 @@ int main(int /*argc*/, char* /*argv*/[])
   try
   {
     {
-      std::cout << "Implicit move ctor generation" << std::endl;
+      std::cout << "--- Implicit move ctor generation ---" << std::endl;
       implicit_movable a;
       std::cout << "Moving... ";
       implicit_movable b(std::move(a));
       (void) b;
     }
     {
-      std::cout << "Move ctor for std::bind generated functors" << std::endl;
+      std::cout << "--- Move ctor for std::bind generated functors ---" 
+          << std::endl;
       auto fa(std::bind(func, explicit_movable()));
       std::cout << "Moving... ";
       auto fb = std::move(fa);
       (void) fb;
     }
     {
-      std::cout << "Move ctor for boost::bind generated functors" << std::endl;
+      std::cout << "--- Move ctor for boost::bind generated functors ---"
+          << std::endl;
       auto fa(boost::bind(func, explicit_movable()));
       std::cout << "Moving... ";
       auto fb = std::move(fa);
       (void) fb;
     }
     {
-      std::cout << "Implicit move ctor for lambdas" << std::endl;
+      std::cout << "--- Implicit move ctor for lambdas ---" << std::endl;
       explicit_movable a;
       auto fa = [a]()
       {
@@ -101,7 +103,7 @@ int main(int /*argc*/, char* /*argv*/[])
       (void) fb;
     }
     {
-      std::cout << "Implicit move ctor for lambdas those capture by ref"
+      std::cout << "--- Implicit move ctor for lambdas those capture by ref ---"
           << std::endl;
       explicit_movable a;
       explicit_movable b;
