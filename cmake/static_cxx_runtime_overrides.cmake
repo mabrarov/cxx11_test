@@ -1,4 +1,4 @@
-# 
+#
 # Copyright (c) 2010-2015 Marat Abrarov (abrarov@gmail.com)
 #
 # Distributed under the Boost Software License, Version 1.0. (See accompanying
@@ -16,11 +16,15 @@ if(MSVC)
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO_INIT "/MT /Zi /O2 /Ob1 /D NDEBUG")
 endif()
 
-if(MINGW)
-    set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++ -static ${CMAKE_EXE_LINKER_FLAGS}")
+if(CMAKE_COMPILER_IS_GNUCC)
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
 endif()
 
 set(Boost_USE_STATIC_LIBS    ON)
 set(Boost_USE_STATIC_RUNTIME ON)
 
 set(ICU_USE_STATIC_LIBS      ON)
+
+if(MSVC)
+    set(GTEST_MSVC_SEARCH    "MT")
+endif()
